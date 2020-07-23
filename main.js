@@ -18,17 +18,22 @@ function nextImage(){
 
     // memorizzo in una var l'immagine attiva
     var activeImage = $(".images img.active");
+
+    var cerchio = $(".nav i.active");
     // console.log(activeImage);
 
     // adesso tolgo la classe active
     activeImage.removeClass("active");
+    cerchio.removeClass("active");
 
 // controlla se siamo arrivati all'ultima immagine e se è così, dobbiamo tornare alla prima assegnandole nuovamente la classe active
     if(activeImage.hasClass("last")){
         $(".images img.first").addClass("active");
+        $(".nav i.active").addClass("active");
     } else {
         // metto la classe active al next
         activeImage.next().addClass("active");
+        cerchio.next().addClass("active");
     }
 
 }
@@ -37,15 +42,18 @@ function nextImage(){
 
 function prevImage(){
     var activeImage = $(".images img.active");
+    var cerchio = $(".nav i.active");
 
     activeImage.removeClass("active");
-
+    cerchio.removeClass("active");
 
     if( activeImage.hasClass("first")){
         $(".images img.last").addClass("active");
+        $(".nav i.active").addClass("active");
         // metto la classe active al prev
     } else {
     activeImage.prev().addClass("active");
+    cerchio.prev().addClass("active");
 }
 }
 
